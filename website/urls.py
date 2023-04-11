@@ -21,7 +21,7 @@ from login.views import d_new
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('signup/',signaction),
+    path('',signaction),
     path('login/',loginaction),
     path('start/',d_new)
 ]
