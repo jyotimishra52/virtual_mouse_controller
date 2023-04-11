@@ -1,0 +1,10 @@
+mediapipe==0.9.2.1
+pyautogui==0.9.53
+opencv-python==4.7.0.72
+comtypes==1.1.14
+pycaw==20230407
+screen-brightness-control==0.20.0
+ctypes-callable==1.0.4
+Django==4.2
+python-math==0.0.1
+enum==0.4.7
