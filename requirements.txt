@@ -7,4 +7,3 @@ screen-brightness-control
 ctypes-callable
 Django
 python-math
-enum
