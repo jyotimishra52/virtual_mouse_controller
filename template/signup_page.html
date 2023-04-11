@@ -1,0 +1,168 @@
+<html>
+
+<head><!--Signup page Head title-->
+    <title>Virtual Mouse Controller</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(93, 162, 230);
+        }
+
+        button {
+            background-color: #4CAF50;
+            width: 25%;
+            padding: 15px;
+            color: black;
+            border: none;
+            float: center;
+            font-size: 15px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        form {
+            border: 3px solid #f1f1f1;
+        }
+
+        input[type=email],
+        input[type=text] {
+            width: 50%;
+            font-size: 15px;
+            margin: 8px 0px;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 2px solid green;
+            box-sizing: border-box;
+        }
+
+        input[type=radio] {
+            height: 18px;
+            width: 18px;
+        }
+
+        button:hover {
+            opacity: 0.7;
+
+        }
+
+        .container {
+            padding: 50px;
+            background-color: rgb(93, 162, 230);
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        img.avatar {
+            width: 10%;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<script>
+    //Validation for check Date of birth
+    function validateForm() {
+        password = document.getElementById("password").value
+        confirmPassword = document.getElementById("confirm_password").value
+        var dob = document.getElementById("dob").value;
+        let mobileNumber = document.getElementById("mobile_number").value
+        var ToDate = new Date();
+
+        if (password === confirmPassword) {
+            if (!mobileNumber) return
+            if (mobileNumber.length < 10) {
+                console.log(mobileNumber.length < 11, mobileNumber.length, mobileNumber)
+                alert("Invalid mobile number.")
+                return
+            }
+            if (!dob) return
+            if (new Date(dob).getTime() > ToDate.getTime()) {
+                alert("The Date must be Smaller to today's date");
+                return;
+            }
+            alert("SignUp Successful")
+        }
+        else {
+            alert("Confirm-Password is not matched with the Password.")
+        }
+    }
+</script>
+
+<body>
+    <center>
+        <h1>Virtual Mouse</h1>
+    </center>
+    <center>
+        <h2>Signup here</h2>
+    </center>
+    <form action="#" method="post">
+        {% csrf_token %}
+        {% load static %}
+        <center>
+            <div class="container">
+                <div class="imgcontainer">
+                    <img style="width: 100px; height: 100px;" src="{% static 'avatar_img2.png' %}" alt="Avatar"
+                        class="avatar">
+                </div>
+
+                <div style=" display: flex; padding: 10px; flex-direction: column; gap: 5px;">
+
+                    <div style=" display: flex; align-items: center; justify-content: center;">
+                        <label style="width: 250px;" for='first_name'>First Name : </label>
+                        <input style="flex: 1;" type='text' placeholder="Enter your first name" name='first_name'
+                            required>
+                    </div>
+                    <div style=" display: flex; align-items: center; justify-content: center;">
+                        <label style="width: 250px;" for='last_name'>Last Name :</label>
+                        <input type='text' style="flex: 1;" placeholder='Enter your last name' name='last_name'
+                            required>
+                    </div>
+                    <div style=" display: flex; align-items: center; justify-content: flex-start; margin: 10px;">
+                        <label style="width: 250px;" for='gender'>Gender :</label>
+                        <input type='radio' name='gender' value='male' required>
+                        <label>Male</label>
+                        <input type='radio' name='gender' value='female' required>
+                        <label>Female</label>
+                    </div>
+                    <div style=" display: flex; align-items: center; justify-content: center;">
+                        <label style="width: 250px;" for='dob'>Date of Birth : </label>
+                        <input style="flex: 1; height: 45px;" min='1899-01-01' max='2023-04-13' id="dob" type="date"
+                            placeholder="DD/MM/YYYY" name="dob" required><br>
+                    </div>
+                    <div style=" display: flex; align-items: center; justify-content: center;">
+                        <label style="width: 250px;" for='email'>Email Id : </label>
+                        <input style="flex: 1;" type="email" placeholder="Enter email" name="email" float="right"
+                            required><br>
+                    </div>
+                    <div style=" display: flex; align-items: center; justify-content: center;">
+                        <label style="width: 250px;" for='mobile_number'>Mobile Number : </label>
+                        <input style="flex: 1;height: 45px;" type="tel" id="mobile_number"
+                            placeholder="Enter Mobile Number" name="mobile_number" minlength="9" maxlength="10"
+                            required><br>
+                    </div>
+                    <div style=" display: flex; align-items: center; justify-content: center;">
+                        <label style="width: 250px;" for='password'>Password : </label>
+                        <input style="flex: 1;" type="text" placeholder="Enter Password" name="password" id="password"
+                            required><br>
+                    </div>
+                    <div style=" display: flex; align-items: center; justify-content: center;">
+                        <label style="width: 250px;" for='confirm_password'>Confirm-Password : </label>
+                        <input style="flex: 1;" type="text" placeholder="Enter Password" name="confirm_password"
+                            id="confirm_password" required><br>
+                    </div>
+
+                    <div style=" display: flex; align-items: center; justify-content: center;">
+                        <button type="submit" onclick="validateForm()">Signup</button><br>
+                    </div>
+                    Already an account <a href="http://localhost:8000/login/"> Login </a>
+                </div>
+            </div>
+        </center>
+    </form>
+</body>
+
+</html>

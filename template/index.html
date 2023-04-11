@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+	<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+	<title>Virtual Mouse By Mahesh</title>
+	<link rel="icon" href="assets/logo.png" type="image/x-icon">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+	<style type="text/css">
+		body {
+			background-color: rgb(19, 29, 41);
+			text-align: center;
+			color: rgb(204, 218, 235);
+		}
+
+		.div-head {
+			margin: 50px;
+		}
+
+		hr {
+			background-color: rgb(204, 218, 235);
+		}
+
+		.jumb-width {
+
+			position: center;
+			background-color: rgb(19, 29, 41);
+		}
+
+		.footer {
+
+			bottom: 0;
+			width: 100%;
+			height: 60px;
+			line-height: 60px;
+			background-color: rgb(19, 29, 41);
+		}
+
+		a {
+			color: rgb(204, 218, 235)
+		}
+
+		.card-style {
+			background-color: rgb(19, 29, 41);
+		}
+
+		img {
+			height: 150px;
+			width: 150px;
+			vertical-align: middle;
+			border-radius: 50%;
+
+		}
+
+
+		.btn.btn-rounded {
+			border-radius: 50px
+		}
+
+		.button {
+			display: flex;
+			flex-direction: row;
+			gap: 10px;
+			justify-content: center;
+		}
+
+		.openbtn {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+		}
+
+		.sidepanel {
+			width: 0;
+			position: fixed;
+			z-index: 1;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: #111;
+			overflow-x: hidden;
+			transition: 0.5s;
+			padding-top: 60px;
+		}
+
+		.sidepanel a {
+			padding: 8px 8px 8px 32px;
+			text-decoration: none;
+			font-size: 25px;
+			color: #818181;
+			display: block;
+			transition: 0.3s;
+		}
+
+		.sidepanel a:hover {
+			color: #f1f1f1;
+		}
+
+		.sidepanel .closebtn {
+			position: absolute;
+			top: 0;
+			right: 25px;
+			font-size: 36px;
+		}
+	</style>
+	<script>
+		function openNav() {
+			document.getElementById("mySidepanel").style.width = "250px";
+		}
+
+		function closeNav() {
+			document.getElementById("mySidepanel").style.width = "0";
+		}
+	</script>
+</head>
+
+<body>
+	{% csrf_token %}
+	{% load static %}
+	<div class="div-head">
+		<div>
+			<div id="mySidepanel" class="sidepanel">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+				<img src="{% static 'avatar_img1.jpg' %}" alt="Avatar" class="avatar" />
+				<a href="#">About</a>
+				<a href="#">Services</a>
+				<a href="#">Clients</a>
+				<a href="#">Contact</a>
+			</div>
+			<button class="openbtn" onclick="openNav()">☰</button>
+		</div>
+		<h1>VIRTUAL MOUSE</h1>
+		<div class="jumbotron jumb-width">
+			<p class="lead">Controlling many activities with the hand gestures that can be performed with mouse.</p>
+			<p class="lead">Like scrolling, dragging, clicking just by , moving hands and fingers gestures.</p>
+			<hr class="my-4">
+			<p class="lead">Control the gestures from here and Save the money from buying a mouse.</p>
+			<div class="button">
+				<form action="http://localhost:8000/start/">
+					<input type="submit" value="Start">
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
