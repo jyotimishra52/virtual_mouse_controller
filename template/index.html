@@ -124,6 +124,7 @@
 <body>
 	{% csrf_token %}
 	{% load static %}
+	<!---
 	<div class="div-head">
 		<div>
 			<div id="mySidepanel" class="sidepanel">
@@ -134,20 +135,22 @@
 				<a href="#">Clients</a>
 				<a href="#">Contact</a>
 			</div>
-			<button class="openbtn" onclick="openNav()">☰</button>
+				
+	<button class="openbtn" onclick="openNav()">☰</button>
+	</div>
+	-->
+	<h1>VIRTUAL MOUSE</h1>
+	<div class="jumbotron jumb-width">
+		<p class="lead">Controlling many activities with the hand gestures that can be performed with mouse.</p>
+		<p class="lead">Like scrolling, dragging, clicking just by , moving hands and fingers gestures.</p>
+		<hr class="my-4">
+		<p class="lead">Control the gestures from here and Save the money from buying a mouse.</p>
+		<div class="button">
+			<form action="http://localhost:8000/start/">
+				<input type="submit" value="Start">
+			</form>
 		</div>
-		<h1>VIRTUAL MOUSE</h1>
-		<div class="jumbotron jumb-width">
-			<p class="lead">Controlling many activities with the hand gestures that can be performed with mouse.</p>
-			<p class="lead">Like scrolling, dragging, clicking just by , moving hands and fingers gestures.</p>
-			<hr class="my-4">
-			<p class="lead">Control the gestures from here and Save the money from buying a mouse.</p>
-			<div class="button">
-				<form action="http://localhost:8000/start/">
-					<input type="submit" value="Start">
-				</form>
-			</div>
-		</div>
+	</div>
 	</div>
 </body>
 
